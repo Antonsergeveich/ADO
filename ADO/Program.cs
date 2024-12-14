@@ -17,12 +17,12 @@ namespace ADO
             Console.WriteLine("\n---------------------------\n");
 
             SqlConnection connection = new SqlConnection(connectionString);
-            string cmd = "SELECT * FROM Authors";
+            string cmd = "SELECT * FROM  Books";
             SqlCommand command = new SqlCommand(cmd, connection);
             connection.Open();
 
             SqlDataReader reader = command.ExecuteReader();
-            const int padding = 25;
+            const int padding = 27;
             for (int i = 0; i < reader.FieldCount; i++)
             {
                 Console.Write(reader.GetName(i).PadRight(padding));
