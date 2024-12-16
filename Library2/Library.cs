@@ -26,7 +26,7 @@ namespace Library2
 		{
 			string cmd = $"SELECT {fields} FROM {tables}";
 			//$" WHERE {condition};";
-			if (condition.Length > 0) cmd += $"WHERE condition";
+			if (condition.Length > 0) cmd += $" WHERE {condition}";
 			cmd += ";";
 			SqlCommand command = new SqlCommand(cmd, connection);
 			connection.Open();
