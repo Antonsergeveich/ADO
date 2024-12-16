@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADO", "ADO\ADO.csproj", "{3CFA2C74-06EE-4E97-95BD-E57487B1CF69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library2", "Library2\Library2.csproj", "{217DA5E3-5649-4554-B69C-E12F82C41F2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3CFA2C74-06EE-4E97-95BD-E57487B1CF69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CFA2C74-06EE-4E97-95BD-E57487B1CF69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CFA2C74-06EE-4E97-95BD-E57487B1CF69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{217DA5E3-5649-4554-B69C-E12F82C41F2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{217DA5E3-5649-4554-B69C-E12F82C41F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{217DA5E3-5649-4554-B69C-E12F82C41F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{217DA5E3-5649-4554-B69C-E12F82C41F2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
