@@ -13,6 +13,13 @@ namespace Library2
 	{
 		static void Main(string[] args)
 		{
+			//Library.Insert("Authors", "author_id,last_name,first_name", "10,'Mazin','Alexander'");
+			Library.Insert
+				(
+					"Books", 
+					"book_id,book_title,book_size,publish_date,author", 
+					"8,'Vikings',950,'2010-10-10',10"
+				);
 			Library.Select("author_id,first_name,last_name", "Authors");
 			Library.Select
 				(
