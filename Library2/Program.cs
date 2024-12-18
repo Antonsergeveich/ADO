@@ -14,12 +14,16 @@ namespace Library2
 		static void Main(string[] args)
 		{
 			//Library.Insert("Authors", "author_id,last_name,first_name", "10,'Mazin','Alexander'");
-			Library.Insert
-				(
-					"Books", 
-					"book_id,book_title,book_size,publish_date,author", 
-					"8,'Vikings',950,'2010-10-10',10"
-				);
+			//Library.Insert
+			//	(
+			//		"Books", 
+			//		"book_id,book_title,book_size,publish_date,author", 
+			//		"8,'Vikings',950,'2010-10-10',10"
+			//	);
+			//Library.InsertAuthor(5, "Stroustrup", "Bjarne");
+			//Library.InsertAuthor(7, "Gadge", "Randy");
+			Console.WriteLine(Library.GetAuthorID("Bjarne Stroustrup"));
+			Library.InsetBook(12, "C++ Programming Language", 331, "1986.01.29", "Bjarne Stroustrup");
 			Library.Select("author_id,first_name,last_name", "Authors");
 			Library.Select
 				(
