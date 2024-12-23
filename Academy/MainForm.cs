@@ -18,7 +18,8 @@ namespace Academy
 		string connectionString;
 		SqlConnection connection;
 
-		Dictionary<string, int> d_groups_directions;
+		Dictionary<string, int> d_directions;
+		Dictionary<string, int> d_groups;
 
 		public MainForm()
 		{
@@ -29,7 +30,13 @@ namespace Academy
 
 			LoadStudents();
 			LoadGroups();
-			LoadDirections();
+			//LoadDirections();
+
+			d_directions = Connector.LoadPair("direction_name", "direction_id", "Directions");
+			d_groups = Connector.LoadPair("group_name", "group_id", "Groups");
+			LoadDictionaryToComboBox(d_directions, cbStudentsDirections);
+			LoadDictionaryToComboBox(d_directions, cbGroupsDirection);
+			LoadDictionaryToComboBox(d_groups, cbStudentsGroups);
 		}
 		void LoadStudents()
 		{
@@ -76,19 +83,36 @@ namespace Academy
 		{
 			dgvGroups.DataSource = Connector.LoadData
 				(
-				"group_id AS 'ID', group_name AS N'Название группы', direction_name AS N'Направление обучения'",
-				"Groups,Directions",
-				"direction=direction_id"
+					"group_id AS 'ID'," +
+					"group_name	AS N'Название группы'," +
+					"direction_name AS N'Направление обучения'," +
+					"COUNT(student_id) AS N'Количество студентов'",
+
+					"Students,Groups,Directions",
+
+					"direction=direction_id AND [group]=group_id" + 
+					" GROUP BY group_id,group_name,direction_name"
 				);
 			tslGroupsCount.Text = $"Количество групп: {dgvGroups.RowCount - 1}.";
 		}
-		void LoadDirections()
+		//void LoadDirections()
+		//{
+		//	//DataTable dt_directions = Connector.LoadData("direction_id, direction_name", "Directions");
+		//	d_groups_directions = Connector.LoadPair("direction_name", "direction_id", "Directions");
+		//	cbGroupsDirection.Items.AddRange(d_groups_directions.Keys.ToArray());
+		//	cbGroupsDirection.Items.Insert(0, "Все");
+		//	cbGroupsDirection.SelectedIndex = 0;
+		//}
+		void LoadDictionaryToComboBox(Dictionary<string,int> tree, ComboBox cb)
 		{
 			//DataTable dt_directions = Connector.LoadData("direction_id, direction_name", "Directions");
-			d_groups_directions = Connector.LoadPair("direction_name", "direction_id", "Directions");
-			cbGroupsDirection.Items.AddRange(d_groups_directions.Keys.ToArray());
-			cbGroupsDirection.Items.Insert(0, "Все");
-			cbGroupsDirection.SelectedIndex = 0;
+			//d_groups_directions = Connector.LoadPair("direction_name", "direction_id", "Directions");
+			//cbGroupsDirection.Items.AddRange(d_groups_directions.Keys.ToArray());
+			//cbGroupsDirection.Items.Insert(0, "Все");
+			//cbGroupsDirection.SelectedIndex = 0;
+			cb.Items.AddRange(tree.Keys.ToArray());
+			cb.Items.Insert(0, "Все");
+			cb.SelectedIndex = 0;
 		}
 
 		private void cbGroupsDirection_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,7 +123,7 @@ namespace Academy
 					(
 						"group_id, group_name, direction_name",
 						"Groups,Directions",
-						$"direction=direction_id AND direction={d_groups_directions[cbGroupsDirection.SelectedItem.ToString()]}"
+						$"direction=direction_id AND direction={d_directions[cbGroupsDirection.SelectedItem.ToString()]}"
 					);
 			tslGroupsCount.Text = $"Количество групп: {(dgvGroups.RowCount == 0 ? 0 : dgvGroups.RowCount - 1)}.";
 		}
