@@ -43,6 +43,10 @@
 			this.dgvGroups = new System.Windows.Forms.DataGridView();
 			this.statusStripGroups = new System.Windows.Forms.StatusStrip();
 			this.tslGroupsCount = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tabPageTeachers = new System.Windows.Forms.TabPage();
+			this.statusStripTeachers = new System.Windows.Forms.StatusStrip();
+			this.tslTeachersCount = new System.Windows.Forms.ToolStripStatusLabel();
+			this.dgvTeachers = new System.Windows.Forms.DataGridView();
 			this.tabControl.SuspendLayout();
 			this.tabPageStudents.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
@@ -50,12 +54,16 @@
 			this.tabPageGroups.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvGroups)).BeginInit();
 			this.statusStripGroups.SuspendLayout();
+			this.tabPageTeachers.SuspendLayout();
+			this.statusStripTeachers.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabControl
 			// 
 			this.tabControl.Controls.Add(this.tabPageStudents);
 			this.tabControl.Controls.Add(this.tabPageGroups);
+			this.tabControl.Controls.Add(this.tabPageTeachers);
 			this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl.Location = new System.Drawing.Point(0, 0);
 			this.tabControl.Name = "tabControl";
@@ -206,6 +214,45 @@
 			this.tslGroupsCount.Size = new System.Drawing.Size(107, 17);
 			this.tslGroupsCount.Text = "Количество групп";
 			// 
+			// tabPageTeachers
+			// 
+			this.tabPageTeachers.Controls.Add(this.dgvTeachers);
+			this.tabPageTeachers.Controls.Add(this.statusStripTeachers);
+			this.tabPageTeachers.Location = new System.Drawing.Point(4, 22);
+			this.tabPageTeachers.Name = "tabPageTeachers";
+			this.tabPageTeachers.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPageTeachers.Size = new System.Drawing.Size(613, 424);
+			this.tabPageTeachers.TabIndex = 2;
+			this.tabPageTeachers.Text = "Teachers";
+			this.tabPageTeachers.UseVisualStyleBackColor = true;
+			// 
+			// statusStripTeachers
+			// 
+			this.statusStripTeachers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslTeachersCount});
+			this.statusStripTeachers.Location = new System.Drawing.Point(3, 399);
+			this.statusStripTeachers.Name = "statusStripTeachers";
+			this.statusStripTeachers.Size = new System.Drawing.Size(607, 22);
+			this.statusStripTeachers.TabIndex = 0;
+			this.statusStripTeachers.Text = "statusStripTeachers";
+			// 
+			// tslTeachersCount
+			// 
+			this.tslTeachersCount.Name = "tslTeachersCount";
+			this.tslTeachersCount.Size = new System.Drawing.Size(170, 17);
+			this.tslTeachersCount.Text = "Количество преподавателей: ";
+			// 
+			// dgvTeachers
+			// 
+			this.dgvTeachers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.dgvTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvTeachers.Location = new System.Drawing.Point(0, 29);
+			this.dgvTeachers.Name = "dgvTeachers";
+			this.dgvTeachers.Size = new System.Drawing.Size(613, 367);
+			this.dgvTeachers.TabIndex = 1;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +272,11 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvGroups)).EndInit();
 			this.statusStripGroups.ResumeLayout(false);
 			this.statusStripGroups.PerformLayout();
+			this.tabPageTeachers.ResumeLayout(false);
+			this.tabPageTeachers.PerformLayout();
+			this.statusStripTeachers.ResumeLayout(false);
+			this.statusStripTeachers.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -246,6 +298,10 @@
 		private System.Windows.Forms.Label lblStudentsGroup;
 		private System.Windows.Forms.ComboBox cbStudentsDirections;
 		private System.Windows.Forms.ComboBox cbStudentsGroups;
+		private System.Windows.Forms.TabPage tabPageTeachers;
+		private System.Windows.Forms.StatusStrip statusStripTeachers;
+		private System.Windows.Forms.ToolStripStatusLabel tslTeachersCount;
+		private System.Windows.Forms.DataGridView dgvTeachers;
 	}
 }
 
