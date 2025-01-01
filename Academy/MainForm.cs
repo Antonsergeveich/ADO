@@ -30,6 +30,7 @@ namespace Academy
 
 			LoadStudents();
 			LoadGroups();
+			LoadTeachers();	
 			//LoadDirections();
 
 			d_groups = Connector.LoadPair("group_name", "group_id", "Groups");
@@ -97,6 +98,22 @@ namespace Academy
 					" GROUP BY group_id,group_name,direction_name"
 				);
 			tslGroupsCount.Text = $"Количество групп: {dgvGroups.RowCount - 1}.";
+		}
+
+		void LoadTeachers()
+		{
+			dgvTeachers.DataSource = Connector.LoadData
+				(
+					"teacher_id AS 'ID', " +
+					"last_name AS N'Фамилия', " +
+					"first_name AS N'Имя', " +
+					"ISNULL(middle_name, N'') AS N'Отчество', " +
+					"CONVERT(NVARCHAR, birth_date, 104) AS N'Дата рождения', " + 
+					"DATEDIFF(day,works_since,GetDATE())/365 AS 'Время работы год', " +
+					"rate AS N'Ставка'",
+					"Teachers"
+				);
+			tslTeachersCount.Text = $"Количество преподавателей: {dgvTeachers.RowCount - 1}.";
 		}
 
 		void LoadDictionaryToComboBox(Dictionary<string, int> tree, ComboBox cb)
